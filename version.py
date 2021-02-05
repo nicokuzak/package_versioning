@@ -31,6 +31,11 @@ def main(args):
 
     ret = []
     for lib in lines:
+        if '=' in lib:
+            if '==' in lib:
+                lib = lib[:lib.find('=')]
+            else:
+                lib = lib[:lib.find('>')]
         ret += [get_version(lib)]
     
     save_reqs(ret, args)
